@@ -5,9 +5,9 @@ import com.example.springfirst1.entity.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 public class CustomerController {
@@ -25,5 +25,33 @@ public class CustomerController {
         customerService.createCustomer(customer);
         return "redirect:/allCustomers";
     }
+
+    @RequestMapping("/allCustomers")
+    public String listCustomer(Model model) {
+        List<Customer> listCustomers = customerService.getAllCustomers();
+        model.addAttribute("listCustomers", listCustomers);
+        return "liste_customers";
+    }
+
+    @GetMapping("/deleteCustomer/{id}")
+    public String deleteCustomer(@PathVariable int id) {
+        customerService.deleteCustomerById(id);
+        return "redirect:/allCustomers";
+    }
+
+    @GetMapping("editCustomer/{id}")
+    public String editCustomer(@PathVariable int id, Model model) {
+        Customer customer = customerService.getCustomerById(id);
+        model.addAttribute("Customer", customer);
+        return "redirect:/allCustomers";
+    }
+
+    @PostMapping("/updateCustomer/{id}")
+    public String updateCustomer(@PathVariable int id, Customer customer) {
+        customerService.updateCustomer(customer);
+        return "redirect:/allCustomers";
+    }
+
+
 
 }

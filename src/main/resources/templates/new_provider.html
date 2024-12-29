@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Ajout Provider</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+</head>
+
+<body>
+<div class="container my-5">
+    <h3> Ajout Povider</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-10">
+                <form action="#" th:action="@{/saveProvider}" th:object="${ProviderForm}"
+                      method="post">
+                    <div class="row">
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">Name</label>
+                            <input type="text" th:field="*{name}" class="form-control"
+                                   id="name" placeholder="name" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">Salary</label>
+                            <input type="text" th:field="*{salary}" class="form-control"
+                                   id="salary" placeholder="description" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="phone" class="col-form-label">Phone</label>
+                            <input type="tel" th:field="*{phone}" class="form-control"
+                                   id="phone" placeholder="description" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="Age" class="col-form-label">Age</label>
+                            <input type="number" th:field="*{age}" class="form-control"
+                                   id="age" placeholder="description" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="email" class="col-form-label">Email</label>
+                            <input type="email" th:field="*{email}" class="form-control"
+                                   id="email" placeholder="description" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="password" class="col-form-label">Password</label>
+                            <input type="password" th:field="*{password}" class="form-control"
+                                   id="password" placeholder="description" />
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">Matricule</label>
+                            <input type="text" th:field="*{matriclule}" class="form-control"
+                                   id="matricule" placeholder="name" />
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">Service</label>
+                            <input type="text" th:field="*{service}" class="form-control"
+                                   id="service" placeholder="price" />
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label for="name" class="col-form-label">Company</label>
+                            <input type="text" th:field="*{company}" class="form-control"
+                                   id="company" placeholder="description" />
+                        </div>
+
+
+
+
+                        <div class="col-md-6">
+                            <input type="submit" class="btn btn-primary" value=" Submit ">
+                        </div>
+
+                        <input type="hidden" id="id" th:field="*{id}">
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
